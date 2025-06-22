@@ -71,7 +71,11 @@
     "b:test:api": "cd api && bun run b:test",
     "b:balance": "bun config/add-balance.js",
     "b:list-balances": "bun config/list-balances.js",
-    "reset-terms": "node config/reset-terms.js"
+    "reset-terms": "node config/reset-terms.js",
+    "deploy:prepare": "node scripts/deploy.js",
+    "build:all": "npm run build:data-provider && npm run build:data-schemas && npm run build:api && cd client && npm run build",
+    "vercel-build": "npm run build:all && npm run deploy:prepare",
+    "start": "cross-env NODE_ENV=production node api/server/index.js"
   },
   "repository": {
     "type": "git",
