@@ -18,36 +18,53 @@ CREDS_KEY=f34be427ebb29de8d88c107a71546019685ed8b241d8f2ed00c3df97ad2566f0
 CREDS_IV=e2341419ec3dd3d19c13a1a87fafac47
 JWT_SECRET=16f8c0ef4a5d391b26034086c628469d3f9f497f08163ab9b40137092f2909ef
 JWT_REFRESH_SECRET=eaa5191f2914e30b9387fd84e254e4ba6fc51b4654968a9b0803b456a54b8418
+MEILI_MASTER_KEY=eaa5191f2914e30b9387fd84e254e4ba6fc51b4654968a9b0803b456a54b8418
 
-# App Configuration
-NODE_ENV=production
+# Session Configuration
 SESSION_EXPIRY=900000
 REFRESH_TOKEN_EXPIRY=604800000
-ALLOW_REGISTRATION=true
-DEBUG_LOGGING=false
+
+# Server Configuration
+NODE_ENV=production
+HOST=0.0.0.0
+PORT=3080
+
+# Config File Location (NEW - Add this!)
+CONFIG_PATH=/app/librechat.yaml
+
+# Search Configuration (disabled for basic setup)
+SEARCH=false
+MEILI_NO_ANALYTICS=true
 ```
 
-## Deployment Steps:
+## 🚀 Railway Deployment Steps
 
 1. **Go to Railway.app** and sign in with GitHub
-2. **Create New Project** → **Deploy from GitHub repo**
+2. **Click "New Project"** → **"Deploy from GitHub repo"**
 3. **Select your repository**: `dahano/PeanutChat`
-4. **Add environment variables** from the list above
-5. **Deploy!**
+4. **Add all environment variables** from the table above
+5. **Railway will automatically build and deploy**
 
-## Railway will automatically:
-- ✅ Detect Node.js application
-- ✅ Run `npm run railway:build` to build everything
-- ✅ Start with `npm start`
-- ✅ Provide a public URL
-- ✅ Auto-redeploy on GitHub pushes
+## 🔍 Troubleshooting
 
-## Custom Domain (Optional):
-- Go to your Railway project settings
-- Add your custom domain
-- Railway provides SSL automatically
+If you see "Config file YAML format is invalid" error:
+- Make sure you added the `CONFIG_PATH=/app/librechat.yaml` environment variable
+- Check that the librechat.yaml file is in your repository root
+- Verify the file is properly formatted YAML
 
-## Monitoring:
-- View logs in Railway dashboard
-- Monitor CPU/Memory usage
-- Set up alerts for downtime 
+## 📱 Access Your App
+
+Once deployed, Railway will provide a URL like:
+`https://your-app-name.railway.app`
+
+## 🎯 Next Steps
+
+1. Visit your Railway app URL
+2. Register a new account (first user becomes admin)
+3. Start chatting with ChatGPT and Claude!
+
+## 🔐 Security Notes
+
+- The security keys provided are examples - generate your own for production
+- Use the LibreChat credentials generator: https://www.librechat.ai/toolkit/creds_generator
+- Keep your API keys secure and never commit them to git 
