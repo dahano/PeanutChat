@@ -5,7 +5,7 @@
     "buildCommand": "npm run railway:build"
   },
   "deploy": {
-    "startCommand": "npm start",
+    "startCommand": "cp librechat.yaml /app/librechat.yaml 2>/dev/null || true && npm start",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
